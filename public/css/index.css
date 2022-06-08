@@ -1,0 +1,87 @@
+
+.navbar {
+  top: 0;
+  position: sticky;
+    margin-bottom: 0;
+    border-radius: 0;
+    z-index: 2;
+    background-color: gray;
+  }
+
+footer {
+    background-color: gray;
+    padding: 50px;
+    height: 250px;
+}
+  
+.carousel-inner img {
+    width: 100%;
+    margin: auto;
+    min-height:200px;
+}
+
+#logo0{
+    margin-top: -5px;
+}
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none; 
+  }
+}
+
+.card{
+  display: inline-block;
+  margin-top: 20px;
+}
+.cards{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px ;
+  row-gap: 5px;
+  column-gap: 5px;
+  
+}
+
+.card-title{
+  font-weight: bold;
+}
+
+.ctt{
+  color: white;
+}
+
+.ctt:hover {
+  color: black;
+}
+
+body{
+  background-color: gray;
+}
+
+.nav-link{
+  color: white;
+}
+
+.navbar-brand{
+  color: white;
+}
+.formulario{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.navbar-brand:hover{
+  color: black;
+}
+
+.image-input{
+  display: flex;
+  flex-direction: row;
+  
+}
+

@@ -1,0 +1,20 @@
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+#logo0{
+    margin-top: -5px;
+}
+
+body{
+    background-color: gray;
+}
+
+footer{
+    background-color: black;
+    padding: 25px;
+    height: 250px;
+}
+
