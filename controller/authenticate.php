@@ -30,7 +30,7 @@
       $_SESSION['name']=$nome;
       $_SESSION['siape']=$siape;
 
-      echo 'bem-vindo' .$nome;
+      header('Location: ../view/objectsAdm.php');
 
     } else{
       echo 'Email e/ou senha não correspondem';

@@ -7,9 +7,9 @@
   ?>
 </head>
 <body>
-  <?php 
-  //inclusão cabeçalho
-    include ('header.php');
+<?php 
+    //inclusão cabeçalho
+    include('header.php');
   ?>
   <main>
       <section>

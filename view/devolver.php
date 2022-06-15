@@ -9,7 +9,7 @@
 <body>
   <?php 
     //inclusão cabeçalho
-    include('header.php');
+    include('headerAdm.php');
   ?>
   <main>
       <section>
