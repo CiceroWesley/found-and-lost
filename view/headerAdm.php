@@ -1,4 +1,12 @@
-
+<?php
+    session_start();
+    $logado = isset($_SESSION['loggedin']);
+    if($logado == TRUE){
+        $href = 'logout.php';
+    } else{
+        $href = 'telaLogin.html';
+    }
+?>
     <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
     <img src="../public/icons/box.png" width="2%" alt="box">
@@ -11,7 +19,7 @@
         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="objects.php">Objetos</a>
+        <a class="nav-link" href="objectsAdm.php">Objetos</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="#footer">Sobre</a>
@@ -19,7 +27,7 @@
     </ul>
     </div>
     <div>
-    <a class='navbar-brand' href="logout.php"><i class="bi bi-box-arrow-left"></i> Sair</a>
+    <a class='navbar-brand' href='<?php echo $href; ?>'><i class="bi bi-box-arrow-left"></i> Sair</a>
     </div>
     </div>
     </nav>
