@@ -15,11 +15,13 @@
     $stmt = $con->prepare("INSERT INTO Objeto (Fk_siape_adm, Nome, Devolvido) VALUES (?, ?, ?)");
     $stmt->bind_param('isi',$_SESSION['siape'], $nome, $devolvido);
     $result = $stmt->execute();
+    //id gerado anteriormente capturado
+    $lastId = $stmt->insert_id;
+    //echo 'ID gerado anteriormente' . $stmt->insert_id;
     $stmt->close();
     if($result){
-        echo '<h1>Objeto inserido com sucesso</h1>';
-        header('Location: ../view/objectsAdm.php');
-        exit();
+        echo "<script> alert('Objeto cadastrado!') </script>"; 
+        echo '<script> window.location.href = "../view/objectsAdm.php"</script>';
     } else{
         echo 'Falha ao inserir objeto';
         header('Location: ../view/objectsAdm.php');
