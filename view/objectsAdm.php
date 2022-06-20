@@ -25,7 +25,7 @@
               <h3>Objetos cadastrados</h3>
           </div>
           <div class="col-4" style="margin-top: 5px;">
-              <a href="cadastro.php"><button class="btn btn-success">Cadastrar Objeto</button></a>
+              <a href="cadastro.php"><button class="btn btn-primary">Cadastrar Objeto</button></a>
           </div>
       </div>
       <div class="text-center">
@@ -76,8 +76,8 @@
                         echo "<td>Não devolvido</td>";
                       }
                       echo '<td><a href='."editObject.php?id=$ids[$i]".'><button class="btn btn-warning">Editar</button></a></td>';
-                      echo '<td><a href=""><button class="btn btn-danger">Remover</button></a></td>';
-                      echo '<td><a href=""><button class="btn btn-success">Devolver</button></a></td>';
+                      echo '<td><a href="'."../controller/remover_obj.php?id=$ids[$i]".'"><button class="btn btn-danger">Remover</button></a></td>';
+                      echo '<td><a href="'."devolver.php?id=$ids[$i]".'"><button class="btn btn-success">Devolver</button></a></td>';
                       echo '</tr>';
                     }
                   }
