@@ -30,13 +30,14 @@
           </div>
           <div class="mb-6" style="width: 40%;">
             <label for="Campus">Campus</label>
-            <select require name="Campus" id="campus">
-              <option value="Juazeiro do Norte">Juazeiro do Norte</option>
-              <option value="Barbalha"> Barbalha</option>
-              <option value="Crato">Crato</option>
-              <option value="Brejo Santo">Brejo Santo</option>
-              <option value="Icó">Icó</option>
-            </select> 
+            <input list="Campus" name="campus" width="50" class="form-control">
+              <datalist id="Campus">
+                <option value="Juazeiro do Norte">
+                <option value="Brejo Santo">
+                <option value="Barbalha"> 
+                <option value="Crato">
+                <option value="Icó">
+              </datalist>
           </div>
           <div class="mb-6" style="width: 40%;">
             <label for="descricao" class="form-label">Descrição</label>

@@ -15,10 +15,10 @@
       <section>
           <div class="text-center">
               <h2>Devolver objeto</h2>
-              <h4>Objeto: carregador</h4>
+              <!--<h4>Objeto: carregador</h4> -->
           </div>
           <div>
-            <form class="form-control formulario" action="">
+            <form class="form-control formulario" action="../controller/devolver_obj.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-6" style="width: 40%;">
                   <label for="proprietario" class="form-label">Email do proprietário</label>
                   <input type="email" width="50" class="form-control" id="proprietario" placeholder="Insira o email do proprietário">
