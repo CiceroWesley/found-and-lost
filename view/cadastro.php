@@ -29,15 +29,14 @@
             <input requerid type="text" width="50" class="form-control" id="nome" name="nome" placeholder="nome do objeto">
           </div>
           <div class="mb-6" style="width: 40%;">
-            <label for="Campus">Campus</label>
-            <input list="Campus" name="campus" width="50" class="form-control">
-              <datalist id="Campus">
-                <option value="Juazeiro do Norte">
-                <option value="Brejo Santo">
-                <option value="Barbalha"> 
-                <option value="Crato">
-                <option value="Icó">
-              </datalist>
+          <label for="campus">Selecione o Campus</label>
+          <select required name="campus" class="form-select" aria-label="Selecione o campus">
+            <option selected value="Juazeiro do Norte">Juazeiro do Norte</option>
+            <option value="Crato">Crato</option>
+            <option value="Barbalha">Barbalha</option>
+            <option value="Brejo Santo">Brejo Santo</option>
+            <option value="Icó">Icó</option>
+          </select>
           </div>
           <div class="mb-6" style="width: 40%;">
             <label for="descricao" class="form-label">Descrição</label>

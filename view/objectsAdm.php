@@ -36,6 +36,8 @@
                       <th>Nome</th>
                       <th>Data cadastro</th>
                       <th>Data devolvido</th>
+                      <th>Descrição</th>
+                      <th>Campus</th>
                       <th>Editar</th>
                       <th>Remover</th>
                       <th>Devolver</th>
@@ -49,15 +51,25 @@
                   $result = $stmt->execute();
                   $stmt->store_result();
                   $linhas = $stmt->num_rows;
-                  if($linhas > 0){
+
+                  $stmt2 = $con->prepare("SELECT * FROM Descricoes");
+                  $result2 = $stmt2->execute();
+                  $stmt2->store_result();
+                  $linhas2 = $stmt2->num_rows();
+
+                  if(($linhas > 0 && $linhas2 > 0) && ($linhas == $linhas2)){
                     //e se tiver mais de 1? [0}?
                     //salvando resultado nas variaveis
                     $stmt->bind_result($id, $siape,$nome,$data,$devolvido);
+                    $stmt2->bind_result($id,$fk_id_objeto,$campus,$descricao);
                     $ids = [];
                     $siapes = [];
                     $nomes = [];
                     $datas = [];
                     $devolvidos = [];
+                    $descricoes = [];
+                    $campi = [];
+                    $fk_id_objetos = [];
                     while($stmt->fetch()){
                       array_push($ids,$id);
                       array_push($siapes,$siape);
@@ -65,23 +77,35 @@
                       array_push($datas,$data);
                       array_push($devolvidos,$devolvido);
                     }
+                    while($stmt2->fetch()){
+                      array_push($fk_id_objetos,$fk_id_objeto);
+                      array_push($campi,$campus);
+                      array_push($descricoes,$descricao);
+                    }
                     for ($i=0; $i < $linhas; $i++) { 
                       echo '<tr>';
-                      echo "<td>$ids[$i]</td>";
-                      echo "<td>$nomes[$i]</td>";
-                      echo "<td>$datas[$i]</td>";
-                      if($devolvidos[$i]){
-                        echo "<td>VER pelo banco</td>";
-                      } else{
-                        echo "<td>Não devolvido</td>";
+                      // verificação, pois alguem pode inserir algo diretamente no banco
+                      // com a verificação o objeto so aparece se os ids baterem
+                      if($ids[$i] == $fk_id_objetos[$i]){
+                        echo "<td>$ids[$i]</td>";
+                        echo "<td>$nomes[$i]</td>";
+                        echo "<td>$datas[$i]</td>";
+                        if($devolvidos[$i]){
+                          echo "<td>VER pelo banco</td>";
+                        } else{
+                          echo "<td>Não devolvido</td>";
+                        }
+                        echo "<td>$descricoes[$i]</td>";
+                        echo "<td>$campi[$i]</td>";
+                        echo '<td><a href='."editObject.php?id=$ids[$i]".'><button class="btn btn-warning">Editar</button></a></td>';
+                        echo '<td><a href="'."../controller/remover_obj.php?id=$ids[$i]".'"><button class="btn btn-danger">Remover</button></a></td>';
+                        echo '<td><a href="'."devolver.php?id=$ids[$i]".'"><button class="btn btn-success">Devolver</button></a></td>';
+                        echo '</tr>';
                       }
-                      echo '<td><a href='."editObject.php?id=$ids[$i]".'><button class="btn btn-warning">Editar</button></a></td>';
-                      echo '<td><a href="'."../controller/remover_obj.php?id=$ids[$i]".'"><button class="btn btn-danger">Remover</button></a></td>';
-                      echo '<td><a href="'."devolver.php?id=$ids[$i]".'"><button class="btn btn-success">Devolver</button></a></td>';
-                      echo '</tr>';
                     }
                   }
                   $stmt->close();  
+                  $stmt2->close();
                   ?>
               </tbody>
           </table>
