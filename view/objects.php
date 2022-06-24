@@ -130,19 +130,22 @@
           }
           
           
-          
+          //print_r($ids);
+          //print_r($fk_id_objetos);
          echo "<section>";
          echo  "<div>";
          echo '<div class="row cards">';
           if(isset($ids)){
             for ($i=0; $i < $linhas; $i++) { 
               for($j=0; $j< $linhas; $j++){
-                if($ids[$i] == $fk_id_objetos[$j]){
+                if($ids[$i] == $fk_id_objetos[$j] && $devolvidos[$i] !=1){
+                  //echo 'I:'.$i;
+                  //echo 'j:'.$j;
                 echo '<div class="card" style="width: 12rem;">';
                 echo '<img src="../public/icons/box.png" class="card-img-top" alt="...">';
                 echo  '<div class="card-body">';
                         echo '<h5 class="card-title">'."$nomes[$i]".'</h5>';
-                        echo '<p class="card-text">'."$descricoes[$i]".'</p>';
+                        echo '<p class="card-text">'."$descricoes[$j]".'</p>';
                         echo '<a href="#" class="btn btn-primary">Go somewhere</a>';
                       echo '</div>';
                   echo '</div>';

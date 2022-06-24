@@ -7,12 +7,10 @@
         exit;
     }
 
-    $nome = $_POST['nome'];
-    $campus = $_POST['Campus'];
-    $descricao = $_POST['descricao'];
-
-    $stmt = $con->prepare("INSERT INTO Objeto (Fk_siape_adm, Nome) VALUES (?, ?)");
-    $stmt->bind_param('is',$_SESSION['siape'], $nome);
+    $id_objeto = $_GET['id'];
+    $devolvido = 1;
+    $stmt = $con->prepare("UPDATE Objeto SET Devolvido = ? WHERE Id = ?");
+    $stmt->bind_param('ii',$devolvido, $id_objeto);
     $result = $stmt->execute();
     $stmt->close();
     if($result){
