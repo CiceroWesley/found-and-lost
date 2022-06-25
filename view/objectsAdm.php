@@ -42,6 +42,7 @@
                       <th>Editar</th>
                       <th>Remover</th>
                       <th>Devolver</th>
+                      <th>Ver objeto</th>
                   </tr>
               </thead>
               <tbody>
@@ -115,6 +116,7 @@
                         echo '<td><a href='."editObject.php?id=$ids[$i]".'><button class="btn btn-warning">Editar</button></a></td>';
                         echo '<td><a href="'."../controller/remover_obj.php?id=$ids[$i]".'"><button class="btn btn-danger">Remover</button></a></td>';
                         echo '<td><a href="'."devolver.php?id=$ids[$i]".'"><button class="btn btn-success">Devolver</button></a></td>';
+                        echo '<td><a href='."verObjeto.php?id=$ids[$i]".' class="btn btn-primary">Ver</a></td>';
                         echo '</tr>';
                       }
                     }
