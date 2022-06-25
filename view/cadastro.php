@@ -35,16 +35,16 @@
             <option value="Crato">Crato</option>
             <option value="Barbalha">Barbalha</option>
             <option value="Brejo Santo">Brejo Santo</option>
-            <option value="Icó">Icó</option>
+            <option value="Ico">Icó</option>
           </select>
           </div>
           <div class="mb-6" style="width: 40%;">
             <label for="descricao" class="form-label">Descrição</label>
-            <input require type="text" width="50" class="form-control" id="descricao" name="descricao" placeholder="insira a descrição">
+            <input required type="text" width="50" class="form-control" id="descricao" name="descricao" placeholder="insira a descrição">
           </div>
           <div class="mb-6" style="width: 40%;">
             <label for="formFileMultiple" class="form-label">Insira as fotos do objeto</label>
-            <input class="form-control" type="file" id="formFileMultiple" multiple>
+            <input required class="form-control" type="file" name="fotos[]" id="formFileMultiple" multiple>
           </div>
           <button type="submit" class="btn btn-success">Enviar</button>
         </form>

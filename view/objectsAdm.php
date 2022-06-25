@@ -36,6 +36,7 @@
                       <th>Nome</th>
                       <th>Data cadastro</th>
                       <th>Data devolvido</th>
+                      <th>Email do proprietario</th>
                       <th>Descrição</th>
                       <th>Campus</th>
                       <th>Editar</th>
@@ -82,18 +83,32 @@
                       array_push($campi,$campus);
                       array_push($descricoes,$descricao);
                     }
+
+                    //print_r($ids);
+                    //print_r(($fk_id_objetos));
                     for ($i=0; $i < $linhas; $i++) { 
                       echo '<tr>';
                       // verificação, pois alguem pode inserir algo diretamente no banco
                       // com a verificação o objeto so aparece se os ids baterem
                       if($ids[$i] == $fk_id_objetos[$i]){
+                        //echo 'i:'.$i;
                         echo "<td>$ids[$i]</td>";
                         echo "<td>$nomes[$i]</td>";
                         echo "<td>$datas[$i]</td>";
                         if($devolvidos[$i]){
-                          echo "<td>VER pelo banco</td>";
+                          $stmt4 = $con->prepare("SELECT Email_proprietario, Data_devolvido FROM Devolvidos WHERE Fk_id_objeto =?");
+                          $stmt4->bind_param('i',$ids[$i]);
+                          $result4 = $stmt4->execute();
+                          $stmt4->store_result();
+                          $linhas4 = $stmt4->num_rows;
+                          $stmt4->bind_result($email_proprietario,$data_devolvido);
+                          $stmt4->fetch();
+
+                          echo "<td>$data_devolvido</td>";
+                          echo "<td>$email_proprietario</td>";
                         } else{
-                          echo "<td>Não devolvido</td>";
+                          echo "<td>Objeto não devolvido</td>";
+                          echo "<td>Objeto não devolvido</td>";
                         }
                         echo "<td>$descricoes[$i]</td>";
                         echo "<td>$campi[$i]</td>";

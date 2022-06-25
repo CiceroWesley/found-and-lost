@@ -6,6 +6,11 @@
     } else{
         $href = 'telaLogin.html';
     }
+
+    if (!isset($_SESSION['loggedin'])) {
+        header('Location: index.php');
+        exit;
+    }
 ?>
     <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
