@@ -20,22 +20,25 @@
   
   <main>
     <section>
+      <br>
       <div class="row text-center">
-          <div class="col-8">
-              <h3>Objetos cadastrados</h3>
+          <div class="col-7">
+              <h3>Tabela de Cadastro</h3>
           </div>
           <div class="col-4" style="margin-top: 5px;">
               <a href="cadastro.php"><button class="btn btn-primary">Cadastrar Objeto</button></a>
           </div>
       </div>
+      <br>
       <div class="text-center">
           <table class="table table-sm">
               <thead>
                   <tr>
                       <th>ID</th>
                       <th>Nome</th>
-                      <th>Data cadastro</th>
-                      <th>Data devolvido</th>
+                      <th>Data do cadastro</th>
+                      <th>Data da devolução</th>
+                      <th>E-mail do proprietário</th>
                       <th>Descrição</th>
                       <th>Campus</th>
                       <th>Editar</th>
@@ -82,18 +85,32 @@
                       array_push($campi,$campus);
                       array_push($descricoes,$descricao);
                     }
+
+                    //print_r($ids);
+                    //print_r(($fk_id_objetos));
                     for ($i=0; $i < $linhas; $i++) { 
                       echo '<tr>';
                       // verificação, pois alguem pode inserir algo diretamente no banco
                       // com a verificação o objeto so aparece se os ids baterem
                       if($ids[$i] == $fk_id_objetos[$i]){
+                        //echo 'i:'.$i;
                         echo "<td>$ids[$i]</td>";
                         echo "<td>$nomes[$i]</td>";
                         echo "<td>$datas[$i]</td>";
                         if($devolvidos[$i]){
-                          echo "<td>VER pelo banco</td>";
+                          $stmt4 = $con->prepare("SELECT Email_proprietario, Data_devolvido FROM Devolvidos WHERE Fk_id_objeto =?");
+                          $stmt4->bind_param('i',$ids[$i]);
+                          $result4 = $stmt4->execute();
+                          $stmt4->store_result();
+                          $linhas4 = $stmt4->num_rows;
+                          $stmt4->bind_result($email_proprietario,$data_devolvido);
+                          $stmt4->fetch();
+
+                          echo "<td>$data_devolvido</td>";
+                          echo "<td>$email_proprietario</td>";
                         } else{
-                          echo "<td>Não devolvido</td>";
+                          echo "<td>Objeto não devolvido</td>";
+                          echo "<td>Objeto não devolvido</td>";
                         }
                         echo "<td>$descricoes[$i]</td>";
                         echo "<td>$campi[$i]</td>";
