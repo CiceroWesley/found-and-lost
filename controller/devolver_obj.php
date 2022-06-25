@@ -6,7 +6,7 @@
         header('Location: index.php');
         exit;
     }
-
+    /*
     $proprietario = $_POST['proprietario'];
 
     $result= $con-> prepare ("INSERT INTO Devolvidos (Email_proprietario) VALUES ($proprietario)");
@@ -31,11 +31,11 @@
     //Configurações
     $Mailer->SMTPAuth = true;
     $Mailer->SMTPSecure = 'ssl';
-/*
+
     //nome do servidor
     $Mailer->Host = 'srv84.prodnd.com.br';
     //Porta de saida de email
-    $Mailer->Port = 465;*/
+    $Mailer->Port = 465;
 
     //Dados do email de saida - autenticaçao
     $Mailer->Username = $_POST['email'];
@@ -74,6 +74,29 @@
     }
 
     //Fim enviar email
+    */
+
+    $id_objeto = $_POST['id_objeto'];
+    $devolvido = 1;
+    $email_dono = $_POST['email'];
+    $nome_dono = explode("@",$email_dono);
+    $stmt = $con->prepare("UPDATE Objeto SET Devolvido = ? WHERE Id = ?");
+    $stmt->bind_param('ii',$devolvido, $id_objeto);
+    $result = $stmt->execute();
+
+    $stmt2 = $con->prepare("INSERT INTO Devolvidos (Fk_id_objeto, Fk_siape_adm, Nome_proprietario, Email_proprietario) VALUES (?, ?, ?, ?)");
+    $stmt2->bind_param('iiss',$id_objeto, $_SESSION['siape'],$nome_dono[0],$email_dono);
+    $result2 = $stmt2->execute();
+
+    if($result2){
+        echo "<script> alert('Objeto devolvido') </script>"; 
+        echo '<script> window.location.href = "../view/objectsAdm.php"</script>';
+    } else{
+        echo 'Falha ao inserir objeto';
+        header('Location: ../view/objectsAdm.php');
+        exit();
+    }
+
 
 
 ?>

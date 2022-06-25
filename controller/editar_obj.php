@@ -7,20 +7,27 @@
         exit;
     }
 
-    $nome = $_POST['nome'];
-    $campus = $_POST['Campus'];
-    $descricao = $_POST['descricao'];
+    $id_objeto = $_POST['id_objeto'];
+    $novo_nome = $_POST['nome'];
+    $nova_descricao = $_POST['descricao'];
+    $novo_campus = $_POST['campus'];
 
-    $stmt = $con->prepare("INSERT INTO Objeto (Fk_siape_adm, Nome) VALUES (?, ?)");
-    $stmt->bind_param('is',$_SESSION['siape'], $nome);
+    $stmt = $con->prepare("UPDATE Objeto SET Nome = ? WHERE Id = ?");
+    $stmt->bind_param('si',$novo_nome, $id_objeto);
     $result = $stmt->execute();
     $stmt->close();
-    if($result){
+
+    $stmt2 = $con->prepare("UPDATE Descricoes SET Campus = ?, Descricao = ? WHERE Fk_id_objeto = ?");
+    $stmt2->bind_param('ssi',$novo_campus, $nova_descricao,$id_objeto);
+    $result2 = $stmt2->execute();
+    $stmt2->close();
+
+    if($result && $result2){
         echo '<h1>Alterações realizadas com sucesso</h1>';
         header('Location: ../view/objectsAdm.php');
         exit();
     } else{
-        echo 'Falha ao inserir objeto';
+        echo 'Falha ao editar o objeto';
         header('Location: ../view/objectsAdm.php');
         exit();
     }

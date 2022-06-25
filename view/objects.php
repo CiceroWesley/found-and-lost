@@ -101,6 +101,10 @@
             $stmt2->store_result();
             $linhas2 = $stmt2->num_rows();
 
+            
+            
+
+
             if(($linhas > 0 && $linhas2 > 0) && ($linhas == $linhas2)){
               //e se tiver mais de 1? [0}?
               //salvando resultado nas variaveis
@@ -114,6 +118,7 @@
               $descricoes = [];
               //$campi = [];
               $fk_id_objetos = [];
+              //$fk_id_objetos3 = [];
               while($stmt->fetch()){
                 array_push($ids,$id);
                 //array_push($siapes,$siape);
@@ -126,23 +131,40 @@
                 //array_push($campi,$campus);
                 array_push($descricoes,$descricao);
               }
+
+
             }
           }
           
           
-          
+          //print_r($ids);
+          //print_r($fk_id_objetos);
+          //print_r($fotos);
          echo "<section>";
          echo  "<div>";
          echo '<div class="row cards">';
+         $k = 0;
+         $one  = 1;
           if(isset($ids)){
             for ($i=0; $i < $linhas; $i++) { 
               for($j=0; $j< $linhas; $j++){
-                if($ids[$i] == $fk_id_objetos[$j]){
+                if($ids[$i] == $fk_id_objetos[$j] && $devolvidos[$i] != 1){
+                  //echo 'I:'.$i;
+                  //echo 'j:'.$j;
+                  $stmt3 = $con->prepare("SELECT Foto FROM Fotos WHERE Fk_id_objeto = ?");
+                  $stmt3->bind_param('i',$ids[$i]);
+                  $result3 = $stmt3->execute();
+                  $stmt3->store_result();
+                  $linhas3 = $stmt3->num_rows();
+                  $stmt3->bind_result($foto);
+                  $stmt3->fetch();
+                  //echo "$foto";
                 echo '<div class="card" style="width: 12rem;">';
-                echo '<img src="../public/icons/box.png" class="card-img-top" alt="...">';
+                
+                echo '<img src='."$foto".' class="card-img-top" alt="...">';
                 echo  '<div class="card-body">';
                         echo '<h5 class="card-title">'."$nomes[$i]".'</h5>';
-                        echo '<p class="card-text">'."$descricoes[$i]".'</p>';
+                        echo '<p class="card-text">'."$descricoes[$j]".'</p>';
                         echo '<a href="#" class="btn btn-primary">Go somewhere</a>';
                       echo '</div>';
                   echo '</div>';
