@@ -37,14 +37,14 @@
         <form class="form-control formulario" action="../controller/editar_obj.php" method="POST">
           <div class="mb-6" style="width: 40%;">
             <label for="exampleFormControlInput1" class="form-label">Nome</label>
-            <input type="text" width="50" name="nome" class="form-control" id="exampleFormControlInput1" placeholder="Insira um novo nome">
+            <input type="text" width="50" name="nome" class="form-control" id="exampleFormControlInput1" placeholder="Insira o novo nome.">
           </div>
           <div class="mb-6" style="width: 40%;">
             <label for="exampleFormControlInput1" class="form-label">Descrição</label>
-            <input type="text" width="50" name="descricao" class="form-control" id="exampleFormControlInput1" placeholder="Insira uma nova descrição">
+            <input type="text" width="50" name="descricao" class="form-control" id="exampleFormControlInput1" placeholder="Insira uma nova descrição.">
           </div>
           <div class="mb-6" style="width: 40%;">
-            <label for="campus">Campus</label>
+            <label for="campus">Selecione o Campus</label>
             <select required name="campus" class="form-select" aria-label="Selecione o campus">
               <option selected value="Juazeiro do Norte">Juazeiro do Norte</option>
               <option value="Crato">Crato</option>
