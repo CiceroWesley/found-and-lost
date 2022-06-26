@@ -1,6 +1,6 @@
 <div id="footer">
-    <div class="container">
-        <footer class="row row-cols-4 py-4 my-4 border-top">
+    <div class="container-fluid">
+        <footer class="row row-cols-4 py-4 my-4">
           <div class="col">
             <a href="https://www.ufca.edu.br/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
             <img src="../public/icons/logoufca.png" width="30%" alt="">
