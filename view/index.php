@@ -26,12 +26,12 @@
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="../public/images/bn0.gif" class="d-block w-100" alt="...">
+                  <img src="../public/images/bn1.png" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="../public/images/bn0.gif" class="d-block w-100" alt="...">
+                  <img src="../public/images/bn2.png" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
                   </div>
                 </div>

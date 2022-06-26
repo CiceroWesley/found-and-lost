@@ -5,13 +5,13 @@
     margin-bottom: 0;
     border-radius: 0;
     z-index: 2;
-    background-color: rgb(197, 34, 34);
+    background-color: #e07800;
   }
 
 footer {
-    background-color: gray;
+    background-color: #e07800;
     padding: 50px;
-    height: 250px;
+    height: 100%;
 }
   
 .carousel-inner img {
@@ -57,11 +57,16 @@ footer {
 }
 
 body{
-  background-color: gray;
+  background-color: #a1b2a1;
+  overflow-x: hidden;
 }
 
 .nav-link{
   color: white;
+}
+
+.nav-link:hover{
+  color: black;
 }
 
 .navbar-brand{
@@ -85,3 +90,6 @@ body{
   
 }
 
+*{
+  position: relative;
+}
