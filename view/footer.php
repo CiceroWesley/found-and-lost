@@ -18,7 +18,7 @@
       
           <div class="col text-center">
             <h5>Devs</h5>
-            <a class="ctt" href="https://github.com/CiceroWesley">Cícero Wesley</a><br>
+            <a class="ctt" href="https://github.com/CiceroWesley">Cicero Wesley</a><br>
             <a class="ctt" href="https://github.com/Lsuyane">Lília Suyane</a><br>
             <a class="ctt" href="https://github.com/moabesdras">Moab Esdras</a>
           </div>
