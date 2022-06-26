@@ -48,7 +48,7 @@
       </section>
       <section>
           <div class="row text-center">
-            <h2>Objetos perdidos recentemente</h2>
+            <h4>Objetos perdidos recentemente</h4>
           </div>
           <div class="row cards">
             <?php
@@ -96,12 +96,20 @@
               for($i=0 ; $i<$linhas; $i++){
                 if($ids[$i] == $fk_id_objetos[$i] && $devolvidos[$i] != 1 && $count !=4){
                   //echo 'i:'.$i;
+                  $stmt3 = $con->prepare("SELECT Foto FROM Fotos WHERE Fk_id_objeto = ?");
+                  $stmt3->bind_param('i',$ids[$i]);
+                  $result3 = $stmt3->execute();
+                  $stmt3->store_result();
+                  $linhas3 = $stmt3->num_rows();
+                  $stmt3->bind_result($foto);
+                  $stmt3->fetch();
+
                   echo '<div class="card" style="width: 12rem;">';
-                    echo '<img src="../public/icons/box.png" class="card-img-top" alt="...">';
-                    echo '<div class="card-body">';
+                  echo '<img src='."$foto".' class="card-img-top" alt="Imagem do objeto perdido">';
+                  echo '<div class="card-body">';
                       echo '<h5 class="card-title">'.$nomes[$i].'</h5>';
                       echo '<p class="card-text">'.$descricoes[$i].'</p>';
-                      echo '<a href="#" class="btn btn-primary">Go somewhere</a>';
+                      echo '<a href='."verObjeto.php?id=$ids[$i]".' class="btn btn-primary">Ver objeto</a>';
                     echo '</div>';
                   echo '</div>';
                   $count +=1;

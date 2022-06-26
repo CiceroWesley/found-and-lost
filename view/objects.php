@@ -14,10 +14,14 @@
   <main>
       <div>
           <section>
-            <br>
+              <div class="row">
+                  <div class="text-center">
+                      <h3>Objetos perdidos</h3>
+                  </div>
+              </div>
               <div class="row text-center">
                   <form action="objects.php" method="POST">
-                      <b><label for="objeto">Nome</label></b>
+                      <label for="objeto">Pesquisar objeto</label>
                       <input type="text" name="objeto" required placeholder="Insira o nome do objeto" id="objeto">
                       <button type="submit">Pesquisar</button>
                   </form>
@@ -157,11 +161,11 @@
                   //echo "$foto";
                 echo '<div class="card" style="width: 12rem;">';
                 
-                echo '<img src='."$foto".' class="card-img-top" alt="...">';
+                echo '<img src='."$foto".' class="card-img-top" alt="Imagem do objeto perdido">';
                 echo  '<div class="card-body">';
                         echo '<h5 class="card-title">'."$nomes[$i]".'</h5>';
                         echo '<p class="card-text">'."$descricoes[$j]".'</p>';
-                        echo '<a href="#" class="btn btn-primary">Go somewhere</a>';
+                        echo '<a href='."verObjeto.php?id=$ids[$i]".' class="btn btn-primary">Ver</a>';
                       echo '</div>';
                   echo '</div>';
                 }

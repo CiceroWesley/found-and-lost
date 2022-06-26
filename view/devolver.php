@@ -31,13 +31,13 @@
       <section>
           <div class="text-center">
               <h2>Devolver objeto</h2>
-              <?php echo '<h4>Objeto: '.$nome.'</h4>';?>
+              <?php echo '<h4>Objeto:'.$nome.'</h4>';?>
           </div>
           <div>
             <form class="form-control formulario" action="../controller/devolver_obj.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-6" style="width: 40%;">
-                  <label for="proprietario" class="form-label">E-mail</label>
-                  <input type="email" width="50" name='email' class="form-control" id="proprietario" placeholder="Insira o e-mail do proprietário">
+                  <label for="proprietario" class="form-label">Email do proprietário</label>
+                  <input type="email" width="50" name='email' class="form-control" id="proprietario" placeholder="Insira o email do proprietário">
                   <input type="number" name="id_objeto" value="<?php echo $id_objeto;?>" hidden>
                 </div>
                 <br>

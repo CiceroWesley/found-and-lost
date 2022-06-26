@@ -20,30 +20,29 @@
   
   <main>
     <section>
-      <br>
       <div class="row text-center">
-          <div class="col-7">
-              <h3>Tabela de Cadastro</h3>
+          <div class="col-8">
+              <h3>Objetos cadastrados</h3>
           </div>
           <div class="col-4" style="margin-top: 5px;">
               <a href="cadastro.php"><button class="btn btn-primary">Cadastrar Objeto</button></a>
           </div>
       </div>
-      <br>
       <div class="text-center">
           <table class="table table-sm">
               <thead>
                   <tr>
                       <th>ID</th>
                       <th>Nome</th>
-                      <th>Data do cadastro</th>
-                      <th>Data da devolução</th>
-                      <th>E-mail do proprietário</th>
+                      <th>Data cadastro</th>
+                      <th>Data devolvido</th>
+                      <th>Email do proprietario</th>
                       <th>Descrição</th>
                       <th>Campus</th>
                       <th>Editar</th>
                       <th>Remover</th>
                       <th>Devolver</th>
+                      <th>Ver objeto</th>
                   </tr>
               </thead>
               <tbody>
@@ -117,6 +116,7 @@
                         echo '<td><a href='."editObject.php?id=$ids[$i]".'><button class="btn btn-warning">Editar</button></a></td>';
                         echo '<td><a href="'."../controller/remover_obj.php?id=$ids[$i]".'"><button class="btn btn-danger">Remover</button></a></td>';
                         echo '<td><a href="'."devolver.php?id=$ids[$i]".'"><button class="btn btn-success">Devolver</button></a></td>';
+                        echo '<td><a href='."verObjeto.php?id=$ids[$i]".' class="btn btn-primary">Ver</a></td>';
                         echo '</tr>';
                       }
                     }
