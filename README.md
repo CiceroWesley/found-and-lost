@@ -13,7 +13,7 @@
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Você instalou a versão 7.4.29-0 / 8.0.18-0 / 8.1.5-0 do `Xampp`?
 
-## 🚀 Instalando Achados e Perdidos
+## 🚀 Instalando o Achados e Perdidos
 
 Para instalar o Achados e Perdidos, siga esta etapa:
 
@@ -22,7 +22,7 @@ Linux e Windows:
 Instalar o Xampp de acordo com o indicado no site.
 ```
 
-## ☕ Usando SGRU
+## ☕ Usando o Achados e Perdidos
 
 Para usar Achados e Perdidos, siga esta etapa:
 
