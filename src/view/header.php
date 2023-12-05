@@ -1,4 +1,3 @@
-
     <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
     <img src="../public/icons/lg.png" width="5%" alt="box">

@@ -1,0 +1,36 @@
+services:
+  php:
+    container_name: php
+    build: 
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./src:/var/www/html/
+    ports:
+      - 8000:80
+
+  db:
+    container_name: db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: achados
+      MYSQL_DATABASE: bessapontes25
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: password1
+    volumes:
+      - ./src/db:/docker-entrypoint-initdb.d
+    ports:
+      - 6306:3306
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    ports:
+      - 8080:80
+    restart: always
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+
