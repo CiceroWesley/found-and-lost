@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <?php 
-    //inclusão head
-    include ('head.php');
-  ?>
-</head>
-<body>
-  <?php 
-    //inclusão cabeçalho
-    include('header.php');
-  ?>
+<?php 
+//inclusão cabeçalho
+include('header.php');
+?>
+<?php
+//inclusão head
+include ('head.php');
+?>
   <main>
       <div>
           <section>
@@ -181,8 +176,6 @@
           
       </div>
   </main>
-  <?php 
-    include('footer.php');
-  ?>
-</body>
-</html>
+<?php 
+  include('footer.php');
+?>

@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <?php 
-    //inclusão head
-    include ('head.php');
-  ?>
-</head>
-<body>
-  <?php 
-    //inclusão cabeçalho
-      include ('headerAdm.php');
-      //session_start();
-      // If the user is not logged in redirect to the login page...
-      if (!isset($_SESSION['loggedin'])) {
-        header('Location: index.php');
-        exit;
-      }
-  ?>
-  
+<?php
+//inclusão cabeçalho
+include ('headerAdm.php');
+//session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+  header('Location: index.php');
+  exit;
+}
+?>
+<?php
+//inclusão head
+include_once ('head.php');
+?>
   <main>
     <section>
       <div class="row text-center">
@@ -129,9 +123,7 @@
       </div>
     </section>
   </main>
-  <?php 
-    //inclusão rodape
-    include('footer.php');
-  ?>
-</body>
-</html>
+<?php
+//inclusão rodape
+include('footer.php');
+?>

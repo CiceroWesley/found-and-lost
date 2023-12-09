@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <?php 
-    //inclusão cabeçalho
-    include ('head.php');
-  ?>
-</head>
-<body>
+<?php
+//inclusão cabeçalho
+include_once('header.php');
+?>
 <?php 
-    //inclusão cabeçalho
-    include('header.php');
-  ?>
+//inclusão cabeçalho
+include_once('head.php');
+?>
   <main>
       <section>
           <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
@@ -119,9 +114,7 @@
           </div>
       </section>
   </main>
-  <?php 
-  //inclusão rodapé
-    include('footer.php');
-  ?>
-</body>
-</html>
+<?php 
+//inclusão rodapé
+include('footer.php');
+?>

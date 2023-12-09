@@ -1,23 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <?php 
-    //inclusão head
-      include ('head.php');
-    ?>
-</head>
-<body>
-  <?php 
-  //inclusão cabeçalho
-  include('header.php');
-  ?>
-  <main>
-
-  </main>
-
-  <?php 
-    //inclusão rodape
-    include('footer.php');
-  ?>
-</body>
-</html>
+<?php 
+//inclusão cabeçalho
+include('header.php');
+?>
+<?php 
+//inclusão head
+include ('head.php');
+?>
+<?php 
+//inclusão rodape
+include('footer.php');
+?>

@@ -1,32 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <?php 
-    //inclusão head
-    include ('head.php');
-  ?>
-</head>
-<body>
-  <?php 
-    //inclusão cabeçalho
-    include('headerAdm.php');
-    include('../model/db.php');
-    $id_objeto =  $_GET['id'];
-    $stmt = $con->prepare("SELECT * FROM Objeto WHERE Id =?");
-    $stmt->bind_param('i',$id_objeto);
-    $result = $stmt->execute();
-    $stmt->store_result();
-    $linhas = $stmt->num_rows;
+<?php
+//inclusão cabeçalho
+include('headerAdm.php');
+include('../model/db.php');
+$id_objeto =  $_GET['id'];
+$stmt = $con->prepare("SELECT * FROM Objeto WHERE Id =?");
+$stmt->bind_param('i',$id_objeto);
+$result = $stmt->execute();
+$stmt->store_result();
+$linhas = $stmt->num_rows;
 
-    $stmt->bind_result($id, $siape,$nome,$data,$devolvido);
-    $stmt->fetch();
+$stmt->bind_result($id, $siape,$nome,$data,$devolvido);
+$stmt->fetch();
 
-    if($devolvido){
-      echo "<script>alert('Objeto ja devolvido')</script>";
-      echo '<script> window.location.href = "objectsAdm.php"</script>';
+if($devolvido){
+  echo "<script>alert('Objeto ja devolvido')</script>";
+  echo '<script> window.location.href = "objectsAdm.php"</script>';
 
-    }
-  ?>
+}
+?>
+<?php 
+//inclusão head
+include ('head.php');
+?>
   <main>
       <section>
           <div class="text-center">
@@ -46,9 +41,7 @@
           </div>
       </section>
   </main>
-  <?php 
-    //inclusão rodape
-    include('footer.php');
-  ?>
-</body>
-</html>
+<?php 
+  //inclusão rodape
+  include('footer.php');
+?>
