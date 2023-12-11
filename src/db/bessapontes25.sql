@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `Descricoes` (
 
 INSERT INTO `Descricoes` (`Id`, `Fk_id_objeto`, `Campus`, `Descricao`) VALUES
 (32, 53, 'Juazeiro do Norte', 'Perdi o celular no banco em frente ao bloco e'),
-(33, 54, 'Juazeiro do Norte', 'dildo roxo e belo');
+(33, 54, 'Juazeiro do Norte', 'teste');
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `Objeto` (
 
 INSERT INTO `Objeto` (`Id`, `Fk_siape_adm`, `Nome`, `Data_cadastro`, `Devolvido`) VALUES
 (53, 1, 'Celular', '2022-06-25', 1),
-(54, 2, 'dildo', '2022-06-25', 0);
+(54, 2, 'teste', '2022-06-25', 0);
 
 --
 -- Índices de tabelas apagadas
