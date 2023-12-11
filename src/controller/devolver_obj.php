@@ -92,8 +92,8 @@
         echo "<script> alert('Objeto devolvido') </script>"; 
         echo '<script> window.location.href = "../view/objectsAdm.php"</script>';
     } else{
-        echo 'Falha ao inserir objeto';
-        header('Location: ../view/objectsAdm.php');
+        echo "<script> alert('Falha ao inserir objeto') </script>"; 
+        echo '<script> window.location.href = "../view/objectsAdm.php"</script>';
         exit();
     }
 

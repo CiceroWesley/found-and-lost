@@ -15,12 +15,12 @@
     $result = $stmt->execute();
     $stmt->close();
     if($result){
-        header('Location: ../view/objectsAdm.php');
-        echo '<h1>Objeto removido com sucesso</h1>';
+        echo "<script> alert('Objeto removido com sucesso') </script>"; 
+        echo '<script> window.location.href = "../view/objectsAdm.php"</script>';
         exit();
     } else{
-        echo 'Falha ao remover objeto';
-        //header('Location: ../view/objectsAdm.php');
+        echo "<script> alert('Falha ao remover objeto') </script>"; 
+        echo '<script> window.location.href = "../view/objectsAdm.php"</script>';
         exit();
     }
 

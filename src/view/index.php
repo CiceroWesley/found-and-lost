@@ -116,5 +116,5 @@ include_once('head.php');
   </main>
 <?php 
 //inclusão rodapé
-include('footer.php');
+include_once('footer.php');
 ?>

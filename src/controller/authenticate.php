@@ -38,9 +38,4 @@
     //fechando conexão
 	  $stmt->close();
   }
-
-
-
-
-
 ?>
