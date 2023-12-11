@@ -20,7 +20,7 @@ Para instalar o Achados e Perdidos, siga esta etapa:
 
 Linux:
 ```
-1. sudo docker compose build.
+1. sudo docker compose build
 ```
 
 ## ☕ Usando o Achados e Perdidos
@@ -28,11 +28,11 @@ Linux:
 Para usar Achados e Perdidos, siga esta etapa:
 
 ```
-1. sudo docker compose up;
-2. acessar o phpmyadmin (http://localhost:8080/);
-3. acessar com usuário 'user1' e senha 'password';
-4. inserir um registro na tabela administrador;
-5. acessar a aplicação via navegador em http://localhost:8000/.
+1. sudo docker compose up
+2. acessar o phpmyadmin (http://localhost:8080/)
+3. acessar com usuário 'user1' e senha 'password'
+4. inserir um registro na tabela administrador
+5. acessar a aplicação via navegador em http://localhost:8000/
 
 ```
 [⬆ Voltar ao topo](#achados-e-perdidos)<br>
